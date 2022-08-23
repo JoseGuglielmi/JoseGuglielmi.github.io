@@ -80,6 +80,7 @@ body {
 
 .contenedor__producto__descripcion__carrito .precio{
   margin-top: 15px;
+  padding-bottom: 10px;
 }
 
 .contenedor__producto__descripcion__carrito .carro{
