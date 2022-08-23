@@ -12,6 +12,7 @@ body {
    background-image: url("https://img.freepik.com/vector-gratis/fondo-minimalista-dibujado-mano_23-2148997841.jpg");
    background-repeat: no-repeat;
    background-attachment: fixed;
+   background-size: cover;
 }
 
 .nav {
