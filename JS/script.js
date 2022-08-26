@@ -9,9 +9,11 @@ const imagenActiva = document.querySelector(".imagen-activa");
 let indiceImagen = 0;
 
 const abrirContenedorPrincipal = (e) =>{
-	imagenActiva.src = e.target.src;	
-	primeraPlana.style.display = "flex";
-	html.style.overflow = "hidden";
+	if(e.target.src != undefined){
+		imagenActiva.src = e.target.src;	
+		primeraPlana.style.display = "flex";
+		html.style.overflow = "hidden";
+	}
 }
 
 imagenes.forEach((imagen) =>{
