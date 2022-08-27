@@ -9,7 +9,6 @@ body {
     "nav" 50px
     "section" 1fr
     "footer";
- 
  }
 
 .section {
@@ -131,13 +130,16 @@ body {
   border-bottom: .5px solid #000;
 }
 
-.contendorNav{
+.contendorNav {
   display: flex;
+  position: relative;
 }
 
-.imagen-contendor{
-  width: 100px;
-  height: 50px;
+.imagen-contendor {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  left: 0;
 }
 
 .logo{
@@ -160,15 +162,20 @@ body {
 
 .contenedor-carrito{
   display: flex;
-  justify-content: flex-end;
+  margin-top: 15px;
+  flex-direction: row;
+  height: 20px;
+  width: 45px;
+  justify-content: center;
   align-items: center;
-  margin-right: 10px;
+  position: absolute;
+  right: 0;
 }
 
 .carrito-compras{
-  margin: 5px;
+  margin-right: 5px;
   text-decoration: none;
   color: #000;
-  font-size: 10px;
+  font-size: 14px;
 }
 
