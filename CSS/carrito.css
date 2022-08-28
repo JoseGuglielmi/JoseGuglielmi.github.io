@@ -9,13 +9,17 @@ body {
         "nav" 50px
         "section" 1fr
         "footer";
+    background-image: radial-gradient(circle at 50.32% 50%, #fff167 0, #d7d238 50%, #aeb400 100%);
+    background-attachment: fixed;
 }
 
 .nav {
-    grid-area: nav;
-    background: #d6dce6;
+    position: fixed;
+    z-index: 10;
+    height: 50px;
+    width: 100%;
+    backdrop-filter: blur(5px);
     border-bottom: .5px solid #000;
-
 }
 
 .contendorNav {
@@ -50,7 +54,7 @@ body {
 }
 
 
-.contenedor-retroceder{
+.contenedor-retroceder {
     position: absolute;
     right: 0;
     height: 100%;
@@ -58,9 +62,21 @@ body {
     display: flex;
 }
 
-.retroceder{
+.retroceder {
     text-decoration: none;
     align-self: center;
-    color:#000;
+    color: #000;
     font-size: 15px;
+}
+
+.section {
+    grid-area: section;
+    margin: 10px;
+}
+
+
+
+.footer {
+    grid-area: footer;
+    height: 100px;
 }
