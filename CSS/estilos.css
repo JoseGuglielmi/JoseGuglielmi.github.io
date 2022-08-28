@@ -9,9 +9,15 @@ body {
     "nav" 50px
     "section" 1fr
     "footer";
-    background: rgb(254,255,2);
-background: linear-gradient(337deg, rgba(254,255,2,1) 0%, rgba(77,200,31,1) 65%);
-    background-attachment: fixed;
+  background: rgb(249,255,0);
+  background: linear-gradient(162deg, rgba(249,255,0,1) 11%, rgba(127,247,66,1) 50%, rgba(255,226,0,1) 97%);
+  background-attachment: fixed;
+ }
+
+.section {
+  grid-area: section;
+  margin: 10px;
+  background-attachment: fixed;
  }
 
 .section {
