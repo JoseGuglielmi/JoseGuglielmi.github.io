@@ -9,7 +9,8 @@ body {
     "nav" 50px
     "section" 1fr
     "footer";
-    background-image: radial-gradient(circle at 50.32% 50%, #fff167 0, #d7d238 50%, #aeb400 100%);
+    background: rgb(254,255,2);
+background: linear-gradient(337deg, rgba(254,255,2,1) 0%, rgba(77,200,31,1) 65%);
     background-attachment: fixed;
  }
 
@@ -31,7 +32,8 @@ body {
 }
 
 .contenedor__producto {
-  background: rgba(210, 247, 0, 0.63);
+  background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   flex-grow: wrap;
