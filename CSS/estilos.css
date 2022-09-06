@@ -49,6 +49,7 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
   margin-bottom: 5px;
   margin-top: 5px;
   box-shadow: 0 5px 10px #000;
+  position: relative;
 }
 
 .contenedor__producto__img {
@@ -87,19 +88,16 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
 }
 
 .contenedor__producto__descripcion__carrito{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
 }
 
 .contenedor__producto__descripcion__carrito .precio{
   margin-top: 15px;
   padding-bottom: 10px;
   color: #000;
+  text-align: center;
 }
 
 .contenedor__producto__descripcion__carrito .carro{
