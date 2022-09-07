@@ -25,6 +25,14 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
   margin: 10px;
 }
 
+.contenedor-carrito-compras{
+  grid-area: section;
+}
+
+.contenedor-carrito-compras {
+  display: flex;
+}
+
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -35,6 +43,7 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
 .footer {
   grid-area: footer;
   height: 100px;
+  background: #000;
 }
 
 .contenedor__producto {
