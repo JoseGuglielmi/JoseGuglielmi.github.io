@@ -1,24 +1,25 @@
 const btnCarrito = document.querySelector(".btn-carrito");
-const contenedorPreductos = document.querySelector(".contenedor");
+
+const html = document.querySelector(".html");
 
 const contenedorDelCarro = document.querySelector(".contenedor-carrito-compras");
-const frag = document.createDocumentFragment();
-const carrito = document.createElement("iframe");
 
-carrito.src="HTML/carrito.html"
-carrito.style.width="100%";
-carrito.style.height="100%";
-carrito.style.border="none";
-
-frag.appendChild(carrito);
-
-
+const carrito = document.querySelector(".panel-carrito");
 
 const abrirMenuCarrito = ()=>{
-    contenedorPreductos.style.display="none";
-    contenedorDelCarro.style.height="500px";
-    contenedorDelCarro.appendChild(frag);
+    //carrito.src="HTML/carrito.html";
+    html.style.overflow = "hidden";
+    contenedorDelCarro.style.display="flex";
+};
+
+const cerrarMenuCarrito = (e)=>{
+    if(e.target.className != "contenedor-carrito-compras"){
+	    contenedorDelCarro.style.display = "none";
+		html.style.overflow = "auto";
+	}
 };
 
 btnCarrito.addEventListener("click",abrirMenuCarrito);
+
+contenedorDelCarro.addEventListener("click",cerrarMenuCarrito);
 

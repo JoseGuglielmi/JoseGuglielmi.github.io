@@ -203,3 +203,27 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
   font-size: 15px;
 }
 
+.contenedor-carrito-compras{
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  display: none;
+}
+
+.contenedor-carrito-secundario{
+  width: 100%;
+  height: 90%;
+  margin: 20px;
+}
+
+.panel-carrito{
+  border: none;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+
