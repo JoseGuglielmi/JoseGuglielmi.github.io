@@ -17,64 +17,66 @@ const agregarFrag = (element) => {
 //funcion que se encarga de obtener y asignar los datos de los productos
 const agregarAlCarro = () => {
   datosProductos = JSON.parse(localStorage.getItem("producto"));
+  if (datosProductos != null) {
+    for (Producto in datosProductos.producto) {
+      //contenedor donde meto el producto
+      let contenedorCarrito = document.createElement("div");
+      contenedorCarrito.classList.add("contenedor-carrito");
 
-  for (Producto in datosProductos.producto) {
-    //contenedor donde meto el producto
-    let contenedorCarrito = document.createElement("div");
-    contenedorCarrito.classList.add("contenedor-carrito");
+      //contenedor de la img
+      let contenedorImg = document.createElement("div");  
+      contenedorImg.classList.add("contenedor-carrito__img");
 
-    //contenedor de la img
-    let contenedorImg = document.createElement("div");
-    contenedorImg.classList.add("contenedor-carrito__img");
+      //la imagen del producto
+      let imgProducto = document.createElement("img");
 
-    //la imagen del producto
-    let imgProducto = document.createElement("img");
+      let contenedorDescripcion = document.createElement("div");
+      contenedorDescripcion.classList.add("contenedor-descripcion");
 
-    let contenedorDescripcion = document.createElement("div");
-    contenedorDescripcion.classList.add("contenedor-descripcion");
+      let titulo = document.createElement("h3");
 
-    let titulo = document.createElement("h3");
+      let precio = document.createElement("p");
+      precio.classList.add("precio");
 
-    let precio = document.createElement("p");
-    precio.classList.add("precio");
+      let contenedorCantidad = document.createElement("div");
+      contenedorCantidad.classList.add("contenedor-cantidad");
 
-    let contenedorCantidad = document.createElement("div");
-    contenedorCantidad.classList.add("contenedor-cantidad");
+      let btnMas = document.createElement("button");
+      btnMas.classList.add("btn-mas");
+      btnMas.innerHTML = "+";
 
-    let btnMas = document.createElement("button");
-    btnMas.classList.add("btn-mas");
-    btnMas.innerHTML = "+";
+      let cantidad = document.createElement("p");
+      cantidad.classList.add("cantidad");
 
-    let cantidad = document.createElement("p");
-    cantidad.classList.add("cantidad");
+      let btnMenos = document.createElement("button");
+      btnMenos.classList.add("btn-mas");
+      btnMenos.innerHTML = "-";
 
-    let btnMenos = document.createElement("button");
-    btnMenos.classList.add("btn-mas");
-    btnMenos.innerHTML = "-";
+      let frag = document.createDocumentFragment();
 
-    let frag = document.createDocumentFragment();
+      frag.appendChild(btnMas);
+      frag.appendChild(cantidad);
+      frag.appendChild(btnMenos);
 
-    frag.appendChild(btnMas);
-    frag.appendChild(cantidad);
-    frag.appendChild(btnMenos);
+      contenedorCantidad.appendChild(frag);
 
-    contenedorCantidad.appendChild(frag);
+      imgProducto.src = "../" + datosProductos.producto[Producto].src;
+      titulo.innerHTML = datosProductos.producto[Producto].nombre;
+      precio.innerHTML =
+        "$ " + datosProductos.producto[Producto].precio.toString();
+      cantidad.innerHTML = 1;
 
-    imgProducto.src = "../" + datosProductos.producto[Producto].src;
-    titulo.innerHTML = datosProductos.producto[Producto].nombre;
-    precio.innerHTML = datosProductos.producto[Producto].precio;
-    cantidad.innerHTML = 1;
+      contenedorImg.appendChild(agregarFrag(imgProducto));
 
-    contenedorImg.appendChild(agregarFrag(imgProducto));
+      contenedorDescripcion.appendChild(agregarFrag(titulo));
+      contenedorDescripcion.appendChild(agregarFrag(precio));
 
-    contenedorDescripcion.appendChild(agregarFrag(titulo));
-    contenedorDescripcion.appendChild(agregarFrag(precio));
+      contenedorCarrito.appendChild(agregarFrag(contenedorImg));
+      contenedorCarrito.appendChild(agregarFrag(contenedorDescripcion));
+      contenedorCarrito.appendChild(agregarFrag(contenedorCantidad));
 
-    contenedorCarrito.appendChild(agregarFrag(contenedorImg));
-    contenedorCarrito.appendChild(agregarFrag(contenedorDescripcion));
-    contenedorCarrito.appendChild(agregarFrag(contenedorCantidad));
-
-    contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
+      contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
+    }
   }
 };
 
