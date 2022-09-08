@@ -211,13 +211,28 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
   top: 0;
   bottom: 0;
   background: rgba(0, 0, 0, .7);
-  display: none;
+  display: flex;
+}
+
+.btnCerrar{
+  position: absolute;
+  z-index: 30;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color:#fff;
+  margin-top: 10px;
+  margin-right: 20px;
+  right: 0;
+  top: 0;
+  font-size: 30px;
 }
 
 .contenedor-carrito-secundario{
   width: 100%;
   height: 90%;
-  margin: 20px;
+  margin-top: 15px;
 }
 
 .panel-carrito{
