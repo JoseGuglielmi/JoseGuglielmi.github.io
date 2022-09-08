@@ -24,7 +24,7 @@ const agregarAlCarro = () => {
       contenedorCarrito.classList.add("contenedor-carrito");
 
       //contenedor de la img
-      let contenedorImg = document.createElement("div");
+      let contenedorImg = document.createElement("div");  
       contenedorImg.classList.add("contenedor-carrito__img");
 
       //la imagen del producto

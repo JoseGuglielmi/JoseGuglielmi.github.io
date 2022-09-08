@@ -6,7 +6,7 @@ let precio;
 
 let productos = {
     producto : [
-        
+
     ],
 }
 
@@ -17,10 +17,29 @@ const agregarAlCarro = (e) =>{
     nombre = e.composedPath()[3].lastElementChild.firstElementChild.firstElementChild.innerHTML;
     precio = e.composedPath()[3].lastElementChild.lastElementChild.firstElementChild.innerHTML;
     precio = precio.substring(precio.indexOf("$")+1,precio.length);
+    let producto = {nombre:nombre,precio:precio,src:img}
     
-    productos.producto.push({nombre:nombre,precio:precio,src:img});
+    if(productos.producto[0] == undefined){
+        
+        productos.producto.push(producto);
+        localStorage.setItem("producto",JSON.stringify(productos)); 
 
-    localStorage.setItem("producto",JSON.stringify(productos));
+    }else{
+        
+        for(c in productos.producto){
+            if(JSON.stringify(productos.producto[c]) != JSON.stringify(producto)){
+                productos.producto.push(producto);
+                localStorage.setItem("producto",JSON.stringify(productos));    
+            }
+        }    
+    }
+/*
+    
+        
+    }
+
+*/
+
 
 };
 
