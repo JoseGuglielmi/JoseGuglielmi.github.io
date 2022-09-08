@@ -7,10 +7,10 @@ let precio;
 
 
 const agregarAlCarro = (e) =>{
-    img = e.path[3].firstElementChild.firstElementChild.outerHTML;
+    img = e.composedPath()[3].firstElementChild.firstElementChild.outerHTML;
     img = img.substring(img.indexOf('"')+1,img.length-2);
-    nombre = e.path[3].lastElementChild.firstElementChild.firstElementChild.innerHTML;
-    precio = e.path[3].lastElementChild.lastElementChild.firstElementChild.innerHTML;
+    nombre = e.composedPath()[3].lastElementChild.firstElementChild.firstElementChild.innerHTML;
+    precio = e.composedPath()[3].lastElementChild.lastElementChild.firstElementChild.innerHTML;
     precio = precio.substring(precio.indexOf("$")+1,precio.length);
     
     let producto = {
