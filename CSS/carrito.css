@@ -90,3 +90,7 @@ background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%)
     color: #fff;
 }
 
+.carro{
+    cursor: pointer;
+}
+

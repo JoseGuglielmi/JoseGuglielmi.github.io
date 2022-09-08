@@ -4,6 +4,11 @@ let img;
 let nombre;
 let precio;
 
+let productos = {
+    producto : [
+        
+    ],
+}
 
 
 const agregarAlCarro = (e) =>{
@@ -13,13 +18,9 @@ const agregarAlCarro = (e) =>{
     precio = e.composedPath()[3].lastElementChild.lastElementChild.firstElementChild.innerHTML;
     precio = precio.substring(precio.indexOf("$")+1,precio.length);
     
-    let producto = {
-        nombre : nombre,
-        precio : precio,
-        src : img
-    };
+    productos.producto.push({nombre:nombre,precio:precio,src:img});
 
-    localStorage.setItem("producto",JSON.stringify(producto));
+    localStorage.setItem("producto",JSON.stringify(productos));
 
 };
 

@@ -9,7 +9,7 @@ const carrito = document.querySelector(".panel-carrito");
 const btnCerrar = document.querySelector(".btnCerrar");
 
 const abrirMenuCarrito = () => {
-    //carrito.src="HTML/carrito.html";
+    carrito.src="HTML/carrito.html";
     html.style.overflow = "hidden";
     contenedorDelCarro.style.display = "flex";
 };
