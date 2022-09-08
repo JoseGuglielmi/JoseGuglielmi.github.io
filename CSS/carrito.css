@@ -1,0 +1,92 @@
+.contenedor-retroceder {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    margin-right: 5px;
+    display: flex;
+}
+
+.retroceder {
+    text-decoration: none;
+    align-self: center;
+    color: #000;
+    font-size: 15px;
+}
+
+.contenedor{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 7px;
+}
+
+.contenedor-carrito { 
+    display: flex;
+    flex-direction: row;
+    flex-grow: wrap;
+    height: 100px;
+    border-radius: 10px;
+    width: 100%;
+    border: .5px solid rgb(255, 255, 255);
+    box-shadow: 1.5px 1.5px rgba(255, 255, 255, 0.863);
+    margin-bottom: 5px;
+    margin-top: 5px;
+    box-shadow: 0 5px 10px #000;
+    padding: 15px;
+    position: relative;
+
+    background: rgb(57,17,64);
+background: linear-gradient(146deg, rgba(57,17,64,1) 11%, rgba(154,0,255,1) 67%);
+  }
+
+  .contenedor-carrito__img{
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .contenedor-carrito__img img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+.contenedor-descripcion{
+    position: absolute;
+    left: 35%;
+    
+}
+
+
+.contenedor-descripcion p{
+    margin-top: 15px;
+}
+
+.contenedor-cantidad{
+    position: absolute;
+    left: 87%;
+}
+
+.contenedor-cantidad button{
+    background: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    font-family: sans-serif;
+    cursor: pointer;
+    color:#fff;
+}
+
+.contenedor-cantidad p{
+    text-align: center;
+    padding: 1.8px;
+}
+
+.contenedor-descripcion h3, p{
+    color: #fff;
+}
+
