@@ -6,11 +6,12 @@ let precio;
 
 
 
-let productos = {
-  producto: []
-};
+
 
 const agregarAlCarro = (e) => {
+  let productos = {
+  producto: []
+  };
     let esIgual = 0;
     img = e.composedPath()[3].firstElementChild.firstElementChild.outerHTML;
     img = img.substring(img.indexOf('"') + 1, img.length - 2);
@@ -29,12 +30,12 @@ const agregarAlCarro = (e) => {
       productos = datosProductos;
     }
 
-    if (productos.producto[0] == undefined) {
+    if(productos.producto[0] == undefined) {
       productos.producto.push(productoo);
       localStorage.setItem("producto", JSON.stringify(productos));
     } else {
       for (c in productos.producto) {
-        if (JSON.stringify(productos.producto[c]) == JSON.stringify(productos)) {
+        if (JSON.stringify(productos.producto[c]) == JSON.stringify(productoo)) {
           esIgual = 1;
         }
       }
