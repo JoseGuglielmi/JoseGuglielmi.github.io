@@ -23,10 +23,12 @@ const cerrarMenuCarrito = () => {
 };
 
 const borrarCarrito = () => {
-    //localStorage.clear();
+    localStorage.clear();
     //console.log(productos.producto)
 };
 
 btnCarrito.addEventListener("click", abrirMenuCarrito);
 
 contenedorDelCarro.addEventListener("click", cerrarMenuCarrito);
+
+btnBorrar.addEventListener("click", borrarCarrito);
