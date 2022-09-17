@@ -1,5 +1,3 @@
-import{productos} from "./agregarAlCarrito.js";
-
 const btnCarrito = document.querySelector(".btn-carrito");
 
 const html = document.querySelector(".html");
@@ -32,5 +30,3 @@ const borrarCarrito = () => {
 btnCarrito.addEventListener("click", abrirMenuCarrito);
 
 contenedorDelCarro.addEventListener("click", cerrarMenuCarrito);
-
-borrarCarrito();

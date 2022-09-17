@@ -16,9 +16,13 @@ const agregarFrag = (element) => {
 
 //funcion que se encarga de obtener y asignar los datos de los productos
 const agregarAlCarro = () => {
+
   datosProductos = JSON.parse(localStorage.getItem("producto"));
+
   if (datosProductos != null) {
+
     for (Producto in datosProductos.producto) {
+
       //contenedor donde meto el producto
       let contenedorCarrito = document.createElement("div");
       contenedorCarrito.classList.add("contenedor-carrito");
