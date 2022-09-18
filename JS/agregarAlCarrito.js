@@ -4,10 +4,6 @@ let img;
 let nombre;
 let precio;
 
-
-
-
-
 const agregarAlCarro = (e) => {
   let productos = {
   producto: []

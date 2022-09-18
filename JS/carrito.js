@@ -19,7 +19,6 @@ const abrirMenuCarrito = () => {
 const cerrarMenuCarrito = () => {
     contenedorDelCarro.style.display = "none";
     html.style.overflow = "auto";
-
 };
 
 const borrarCarrito = () => {

@@ -1,7 +1,8 @@
-//agrego los datos
-
 //contenedor del carrito donde metemos los productos
 const contenedorCarro = document.querySelector(".contenedor");
+
+//boton de eliminar producto
+const botonEliminarProducto = document.querySelector(".eliminar");
 
 //datos obtenidos
 let datosProductos;
@@ -23,7 +24,7 @@ const agregarAlCarro = () => {
 
     for (Producto in datosProductos.producto) {
 
-      /*
+      /* -------------------------------------------------------------------
       //contenedor de la img
       let contenedorImg = document.createElement("div");  
       contenedorImg.classList.add("contenedor-carrito__img");
@@ -77,13 +78,14 @@ const agregarAlCarro = () => {
       contenedorCarrito.appendChild(agregarFrag(contenedorCantidad));
 
       contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
-      */
+      ----------------------------------------------------------------------------*/
 
       //contenedor donde meto el producto
       let contenedorCarrito = document.createElement("div");
       contenedorCarrito.classList.add("contenedor-carrito");
 
       const producto = `
+
         <div class="contenedor-carrito__img">
           <img src=" ${"../" + datosProductos.producto[Producto].src}">
         </div>
@@ -95,13 +97,22 @@ const agregarAlCarro = () => {
           <button class="btn-mas">+</button>
           <p class="cantidad">0</p>
           <button class="btn-mas">-</button>
-        </div>` 
-
+        </div>
+        <button class="eliminar"><i class="fa-solid fa-trash"></i></button>
+        ` 
+      //lo agrego al div que contiene el producto
       contenedorCarrito.innerHTML = producto;
 
+      //lo agrego al html
       contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
     }
   }
 };
 
 agregarAlCarro();
+
+contenedorCarro.addEventListener("click", (e)=>{
+    if(e.target.className == "fa-solid fa-trash"){
+      
+    }
+});
