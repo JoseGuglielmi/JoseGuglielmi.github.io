@@ -23,10 +23,7 @@ const agregarAlCarro = () => {
 
     for (Producto in datosProductos.producto) {
 
-      //contenedor donde meto el producto
-      let contenedorCarrito = document.createElement("div");
-      contenedorCarrito.classList.add("contenedor-carrito");
-
+      /*
       //contenedor de la img
       let contenedorImg = document.createElement("div");  
       contenedorImg.classList.add("contenedor-carrito__img");
@@ -78,6 +75,29 @@ const agregarAlCarro = () => {
       contenedorCarrito.appendChild(agregarFrag(contenedorImg));
       contenedorCarrito.appendChild(agregarFrag(contenedorDescripcion));
       contenedorCarrito.appendChild(agregarFrag(contenedorCantidad));
+
+      contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
+      */
+
+      //contenedor donde meto el producto
+      let contenedorCarrito = document.createElement("div");
+      contenedorCarrito.classList.add("contenedor-carrito");
+
+      const producto = `
+        <div class="contenedor-carrito__img">
+          <img src=" ${"../" + datosProductos.producto[Producto].src}">
+        </div>
+        <div class="contenedor-descripcion">
+          <h3>${datosProductos.producto[Producto].nombre}</h3>
+          <p class="precio">${"$" + datosProductos.producto[Producto].precio}</p>
+        </div>
+        <div class="contenedor-cantidad">
+          <button class="btn-mas">+</button>
+          <p class="cantidad">0</p>
+          <button class="btn-mas">-</button>
+        </div>` 
+
+      contenedorCarrito.innerHTML = producto;
 
       contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
     }

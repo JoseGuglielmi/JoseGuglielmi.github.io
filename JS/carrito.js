@@ -24,7 +24,6 @@ const cerrarMenuCarrito = () => {
 
 const borrarCarrito = () => {
     localStorage.clear();
-    //console.log(productos.producto)
 };
 
 btnCarrito.addEventListener("click", abrirMenuCarrito);
