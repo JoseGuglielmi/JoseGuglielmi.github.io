@@ -87,7 +87,7 @@ const agregarAlCarro = () => {
       const producto = `
 
         <div class="contenedor-carrito__img">
-          <img src=" ${"../" + datosProductos.producto[Producto].src}">
+          <img src=" ${datosProductos.producto[Producto].src}">
         </div>
         <div class="contenedor-descripcion">
           <h3>${datosProductos.producto[Producto].nombre}</h3>

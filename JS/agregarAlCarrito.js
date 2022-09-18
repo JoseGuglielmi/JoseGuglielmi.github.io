@@ -1,4 +1,4 @@
-const btnAñadirAlCarro = document.querySelectorAll(".carro");
+const btnAñadirAlCarro = document.querySelector(".contenedor");
 
 let img;
 let nombre;
@@ -9,34 +9,34 @@ const agregarAlCarro = (e) => {
   producto: []
   };
     let esIgual = 0;
-    img = e.composedPath()[3].firstElementChild.firstElementChild.outerHTML;
-    img = img.substring(img.indexOf('"') + 1, img.length - 2);
-    nombre =
-      e.composedPath()[3].lastElementChild.firstElementChild.firstElementChild
-        .innerHTML;
-    precio =
-      e.composedPath()[3].lastElementChild.lastElementChild.firstElementChild
-        .innerHTML;
-    precio = precio.substring(precio.indexOf("$") + 1, precio.length);
 
-    let productoo = { nombre: nombre, precio: precio, src: img };
+    const botonAgregar = e.target;
+    const contenedor = botonAgregar.closest(".contenedor__producto");
+
+    img = contenedor.querySelector(".img").src;
+    nombre = contenedor.querySelector(".titulo").innerHTML;
+    precio = contenedor.querySelector(".precio").innerHTML;
+    precio = precio.substring(9,precio.lenght);
+
+    let producto = { nombre: nombre, precio: precio, src: img };
 
     datosProductos = JSON.parse(localStorage.getItem("producto"));
+
     if(datosProductos != null){
       productos = datosProductos;
     }
 
     if(productos.producto[0] == undefined) {
-      productos.producto.push(productoo);
+      productos.producto.push(producto);
       localStorage.setItem("producto", JSON.stringify(productos));
     } else {
       for (c in productos.producto) {
-        if (JSON.stringify(productos.producto[c]) == JSON.stringify(productoo)) {
+        if (JSON.stringify(productos.producto[c]) == JSON.stringify(producto)) {
           esIgual = 1;
         }
       }
       if(esIgual == 0){
-        productos.producto.push(productoo);
+        productos.producto.push(producto);
         localStorage.setItem("producto", JSON.stringify(productos));
       }
     }
@@ -44,6 +44,4 @@ const agregarAlCarro = (e) => {
     esIgual = 0;
 };
 
-btnAñadirAlCarro.forEach((a) => {
-  a.addEventListener("click", agregarAlCarro);
-});
+btnAñadirAlCarro.addEventListener("click", agregarAlCarro);
