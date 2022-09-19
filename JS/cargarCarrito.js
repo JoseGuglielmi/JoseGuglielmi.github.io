@@ -15,70 +15,18 @@ const agregarFrag = (element) => {
   return frag;
 };
 
+const obtenerDatosLocalStorage = ()=>{
+  return JSON.parse(localStorage.getItem("producto"));
+};
+
 //funcion que se encarga de obtener y asignar los datos de los productos
 const agregarAlCarro = () => {
 
-  datosProductos = JSON.parse(localStorage.getItem("producto"));
+  datosProductos = obtenerDatosLocalStorage();
 
   if (datosProductos != null) {
 
     for (Producto in datosProductos.producto) {
-
-      /* -------------------------------------------------------------------
-      //contenedor de la img
-      let contenedorImg = document.createElement("div");  
-      contenedorImg.classList.add("contenedor-carrito__img");
-
-      //la imagen del producto
-      let imgProducto = document.createElement("img");
-
-      let contenedorDescripcion = document.createElement("div");
-      contenedorDescripcion.classList.add("contenedor-descripcion");
-
-      let titulo = document.createElement("h3");
-
-      let precio = document.createElement("p");
-      precio.classList.add("precio");
-
-      let contenedorCantidad = document.createElement("div");
-      contenedorCantidad.classList.add("contenedor-cantidad");
-
-      let btnMas = document.createElement("button");
-      btnMas.classList.add("btn-mas");
-      btnMas.innerHTML = "+";
-
-      let cantidad = document.createElement("p");
-      cantidad.classList.add("cantidad");
-
-      let btnMenos = document.createElement("button");
-      btnMenos.classList.add("btn-mas");
-      btnMenos.innerHTML = "-";
-
-      let frag = document.createDocumentFragment();
-
-      frag.appendChild(btnMas);
-      frag.appendChild(cantidad);
-      frag.appendChild(btnMenos);
-
-      contenedorCantidad.appendChild(frag);
-
-      imgProducto.src = "../" + datosProductos.producto[Producto].src;
-      titulo.innerHTML = datosProductos.producto[Producto].nombre;
-      precio.innerHTML =
-        "$ " + datosProductos.producto[Producto].precio.toString();
-      cantidad.innerHTML = 1;
-
-      contenedorImg.appendChild(agregarFrag(imgProducto));
-
-      contenedorDescripcion.appendChild(agregarFrag(titulo));
-      contenedorDescripcion.appendChild(agregarFrag(precio));
-
-      contenedorCarrito.appendChild(agregarFrag(contenedorImg));
-      contenedorCarrito.appendChild(agregarFrag(contenedorDescripcion));
-      contenedorCarrito.appendChild(agregarFrag(contenedorCantidad));
-
-      contenedorCarro.appendChild(agregarFrag(contenedorCarrito));
-      ----------------------------------------------------------------------------*/
 
       //contenedor donde meto el producto
       let contenedorCarrito = document.createElement("div");
@@ -90,12 +38,12 @@ const agregarAlCarro = () => {
           <img src=" ${datosProductos.producto[Producto].src}">
         </div>
         <div class="contenedor-descripcion">
-          <h3>${datosProductos.producto[Producto].nombre}</h3>
+          <h3 class="titulo">${datosProductos.producto[Producto].nombre}</h3>
           <p class="precio">${"$" + datosProductos.producto[Producto].precio}</p>
         </div>
         <div class="contenedor-cantidad">
           <button class="btn-mas">+</button>
-          <p class="cantidad">0</p>
+          <p class="cantidad">${datosProductos.producto[Producto].cantidad}</p>
           <button class="btn-mas">-</button>
         </div>
         <button class="eliminar"><i class="fa-solid fa-trash"></i></button>
@@ -111,8 +59,29 @@ const agregarAlCarro = () => {
 
 agregarAlCarro();
 
+
+
 contenedorCarro.addEventListener("click", (e)=>{
-    if(e.target.className == "fa-solid fa-trash"){
-      
+    const botonEliminarProducto  = e.target;
+    if(botonEliminarProducto.className == "fa-solid fa-trash"){
+      const contenedor = botonEliminarProducto.closest(".contenedor-carrito");
+      const titulo = contenedor.querySelector(".titulo").innerHTML;
+
+      let productos = obtenerDatosLocalStorage();
+
+      for(c in productos.producto){
+        if(productos.producto[c].nombre == titulo){
+          
+          productos.producto.splice(c,1);
+
+          localStorage.clear();
+
+          localStorage.setItem("producto", JSON.stringify(productos));
+
+          location.reload();
+
+          
+        }
+      }
     }
 });
