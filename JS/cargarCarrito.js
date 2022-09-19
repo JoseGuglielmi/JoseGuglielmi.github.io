@@ -2,7 +2,9 @@
 const contenedorCarro = document.querySelector(".contenedor");
 
 //datos obtenidos
-let datosProductos;
+let datosProductos = {
+    producto: []
+    };
 
 const agregarFrag = (element) => {
 
@@ -85,7 +87,8 @@ contenedorCarro.addEventListener("click", (e)=>{
 
           localStorage.clear();
 
-          localStorage.setItem("producto", JSON.stringify(productos));
+          actualizarLocalStorage(productos);
+          // localStorage.setItem("producto", JSON.stringify(productos));
 
           location.reload();
         }
@@ -104,13 +107,14 @@ contenedorCarro.addEventListener("click", (e)=>{
 
           productos.producto[c].cantidad++;
 
+          contenedor.querySelector(".cantidad").innerHTML = productos.producto[c].cantidad;
+
            localStorage.clear();
 
-          localStorage.setItem("producto", JSON.stringify(productos));
+          actualizarLocalStorage(productos);
+          // localStorage.setItem("producto", JSON.stringify(productos));
 
-          location.reload();
-
-         
+          // location.reload();
         }
       }
 
@@ -130,24 +134,33 @@ contenedorCarro.addEventListener("click", (e)=>{
 
             productos.producto[c].cantidad--;
 
+            contenedor.querySelector(".cantidad").innerHTML = productos.producto[c].cantidad;
+
             if(productos.producto[c].cantidad <= 0){
               
               productos.producto.splice(c,1);
 
               localStorage.clear();
 
-              localStorage.setItem("producto", JSON.stringify(productos));
+              actualizarLocalStorage(productos);
+              // localStorage.setItem("producto", JSON.stringify(productos));
 
               location.reload();
             }else{
 
               localStorage.clear();
+              actualizarLocalStorage(productos);
+              // localStorage.setItem("producto", JSON.stringify(productos));
 
-              localStorage.setItem("producto", JSON.stringify(productos));
-
-              location.reload();
+              // location.reload();
             }
           }
         }
       }
 });
+
+const actualizarLocalStorage = (dato) =>{
+  localStorage.setItem("producto", JSON.stringify(dato));
+};
+
+window.onbeforeunload = actualizarLocalStorage(datosProductos);

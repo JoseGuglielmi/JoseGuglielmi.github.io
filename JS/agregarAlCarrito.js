@@ -52,6 +52,7 @@ const agregarAlCarro = (e) => {
       producto = { nombre: nombre, precio: precio, src: img, cantidad: cantidad};
       productos.producto.push(producto);
       localStorage.setItem("producto", JSON.stringify(productos));
+
     }
 };
 
