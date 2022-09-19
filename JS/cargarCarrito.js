@@ -1,13 +1,11 @@
 //contenedor del carrito donde metemos los productos
 const contenedorCarro = document.querySelector(".contenedor");
 
-//boton de eliminar producto
-const botonEliminarProducto = document.querySelector(".eliminar");
-
 //datos obtenidos
 let datosProductos;
 
 const agregarFrag = (element) => {
+
   let frag = document.createDocumentFragment();
 
   frag.appendChild(element);
@@ -15,7 +13,9 @@ const agregarFrag = (element) => {
   return frag;
 };
 
+//retorno los datos almacenados en el local strorage
 const obtenerDatosLocalStorage = ()=>{
+  //obtengo y retorno los datos del local strorage
   return JSON.parse(localStorage.getItem("producto"));
 };
 
@@ -30,8 +30,10 @@ const agregarAlCarro = () => {
 
       //contenedor donde meto el producto
       let contenedorCarrito = document.createElement("div");
+      //le agrego una clase
       contenedorCarrito.classList.add("contenedor-carrito");
 
+      //datos del producto
       const producto = `
 
         <div class="contenedor-carrito__img">
@@ -42,9 +44,9 @@ const agregarAlCarro = () => {
           <p class="precio">${"$" + datosProductos.producto[Producto].precio}</p>
         </div>
         <div class="contenedor-cantidad">
-          <button class="btn-mas">+</button>
+          <button class="btn-mas mas">+</button>
           <p class="cantidad">${datosProductos.producto[Producto].cantidad}</p>
-          <button class="btn-mas">-</button>
+          <button class="btn-mas menos">-</button>
         </div>
         <button class="eliminar"><i class="fa-solid fa-trash"></i></button>
         ` 
@@ -57,14 +59,21 @@ const agregarAlCarro = () => {
   }
 };
 
+//llamo a la funcion que me agrega los productos al carrito de compras
 agregarAlCarro();
 
 
 
 contenedorCarro.addEventListener("click", (e)=>{
+
+    //obtendo el dato de que se preciono
     const botonEliminarProducto  = e.target;
+
+    //si se apreto el boton de eliminar elimino el producto seleccionado
     if(botonEliminarProducto.className == "fa-solid fa-trash"){
+
       const contenedor = botonEliminarProducto.closest(".contenedor-carrito");
+
       const titulo = contenedor.querySelector(".titulo").innerHTML;
 
       let productos = obtenerDatosLocalStorage();
@@ -79,9 +88,66 @@ contenedorCarro.addEventListener("click", (e)=>{
           localStorage.setItem("producto", JSON.stringify(productos));
 
           location.reload();
-
-          
         }
       }
-    }
+    }else if(botonEliminarProducto.className == "btn-mas mas")
+    {
+ 
+     const contenedor = botonEliminarProducto.closest(".contenedor-carrito");
+
+      const titulo = contenedor.querySelector(".titulo").innerHTML;
+
+      let productos = obtenerDatosLocalStorage();
+
+      for(c in productos.producto){
+        if(productos.producto[c].nombre == titulo){
+
+          productos.producto[c].cantidad++;
+
+           localStorage.clear();
+
+          localStorage.setItem("producto", JSON.stringify(productos));
+
+          location.reload();
+
+         
+        }
+      }
+
+
+
+    }else if(botonEliminarProducto.className == "btn-mas menos")
+      {
+
+      const contenedor = botonEliminarProducto.closest(".contenedor-carrito");
+
+      const titulo = contenedor.querySelector(".titulo").innerHTML;
+
+      let productos = obtenerDatosLocalStorage();
+
+      for(c in productos.producto){
+        if(productos.producto[c].nombre == titulo){
+
+            productos.producto[c].cantidad--;
+
+            if(productos.producto[c].cantidad <= 0){
+              
+              productos.producto.splice(c,1);
+
+              localStorage.clear();
+
+              localStorage.setItem("producto", JSON.stringify(productos));
+
+              location.reload();
+            }else{
+
+              localStorage.clear();
+
+              localStorage.setItem("producto", JSON.stringify(productos));
+
+              location.reload();
+            }
+          }
+        }
+      }
 });
