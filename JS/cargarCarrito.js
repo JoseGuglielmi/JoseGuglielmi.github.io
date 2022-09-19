@@ -88,9 +88,7 @@ contenedorCarro.addEventListener("click", (e)=>{
           localStorage.clear();
 
           actualizarLocalStorage(productos);
-          // localStorage.setItem("producto", JSON.stringify(productos));
-
-          location.reload();
+          contenedor.style.display = "none";
         }
       }
     }else if(botonEliminarProducto.className == "btn-mas mas")
@@ -112,9 +110,6 @@ contenedorCarro.addEventListener("click", (e)=>{
            localStorage.clear();
 
           actualizarLocalStorage(productos);
-          // localStorage.setItem("producto", JSON.stringify(productos));
-
-          // location.reload();
         }
       }
 
@@ -143,16 +138,13 @@ contenedorCarro.addEventListener("click", (e)=>{
               localStorage.clear();
 
               actualizarLocalStorage(productos);
-              // localStorage.setItem("producto", JSON.stringify(productos));
 
-              location.reload();
+              contenedor.style.display = "none";
             }else{
 
               localStorage.clear();
               actualizarLocalStorage(productos);
-              // localStorage.setItem("producto", JSON.stringify(productos));
 
-              // location.reload();
             }
           }
         }
